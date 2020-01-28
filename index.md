@@ -4,11 +4,11 @@
 
 ### Category Name 1 
 
-[Project 1](/projects/project1.md)
+[Undergraduate Research Summer 2019](pdf/GWilkins_Bahamas_Burn_poster.pdf)
 <img src="images/burn_poster.PNG?raw=true"/>
 
 ---
-[Project 2 Title](/pdf/sample_presentation.pdf)
+[Project 2 Title](pdf/sample_presentation.pdf)
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 ---

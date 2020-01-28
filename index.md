@@ -4,8 +4,8 @@
 
 ### Category Name 1 
 
-[Project 1 Title](/projects/project1.md)
-<img src="images/dummy_thumbnail.jpg?raw=true"/>
+[Project 1](/projects/project1.md)
+<img src="images/burn_poster.PNG?raw=true"/>
 
 ---
 [Project 2 Title](/pdf/sample_presentation.pdf)

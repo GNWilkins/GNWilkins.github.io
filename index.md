@@ -2,18 +2,14 @@
 
 ---
 
-### Category Name 1 
+### Undergraduate Projects
 
 [Undergraduate Research Summer 2019](pdf/GWilkins_Bahamas_Burn_poster.pdf)
 <img src="images/burn_poster.PNG?raw=true"/>
 
 ---
-[Project 2 Title](pdf/sample_presentation.pdf)
-<img src="images/dummy_thumbnail.jpg?raw=true"/>
-
----
-[Project 3 Title](http://example.com/)
-<img src="images/dummy_thumbnail.jpg?raw=true"/>
+[Lab for Advanced GIS Course](pdf/Wilkins_Lab_12.pdf)
+<image src="images/GWilkins_GES386_lab12_thumbnail.PNG?raw=true"/>
 
 ---
 

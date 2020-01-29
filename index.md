@@ -8,7 +8,7 @@
 <img src="images/burn_poster.PNG?raw=true"/>
 
 ---
-[Lab for Advanced GIS Course](pdf/Wilkins_Lab_12.pdf)
+[Lab for Introductory GIS Course](pdf/Wilkins_Lab_12.pdf)
 <image src="images/GWilkins_GES386_lab12_thumbnail.PNG?raw=true"/>
 
 ---

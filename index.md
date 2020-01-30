@@ -12,7 +12,10 @@
 <image src="images/GWilkins_GES386_lab12_thumbnail.PNG?raw=true"/>
 
 ---
+[Digitized Map for Bahama Oriole Project Fieldwork](pdf/G_Wilkins_BAHO_worksite_map.pdf)
+<image src="images/BAHO_worksite_map.PNG?raw=true"/>
 
+---
 ### Category Name 2
 
 - [Project 1 Title](http://example.com/)

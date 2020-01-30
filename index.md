@@ -8,12 +8,12 @@
 <img src="images/burn_poster.PNG?raw=true"/>
 
 ---
-[Lab for Introductory GIS Course](pdf/Wilkins_Lab_12.pdf)
-<image src="images/GWilkins_GES386_lab12_thumbnail.PNG?raw=true"/>
-
----
 [Digitized Map for Bahama Oriole Project Fieldwork](pdf/G_Wilkins_BAHO_worksite_map.pdf)
 <image src="images/BAHO_worksite_map.PNG?raw=true"/>
+
+---
+[Lab for Introductory GIS Course](pdf/Wilkins_Lab_12.pdf)
+<image src="images/GWilkins_GES386_lab12_thumbnail.PNG?raw=true"/>
 
 ---
 ### Category Name 2

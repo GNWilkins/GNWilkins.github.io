@@ -4,7 +4,7 @@
 
 ### Undergraduate Projects
 
-[Undergraduate Research - Summer 2019](projects/project_1.md)
+[Undergraduate Research - Summer 2019](Project1.md)
 <img src="images/GWilkins_BAHO_poster_thumbnail.PNG?raw=true"/>
 
 ---

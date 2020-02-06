@@ -15,12 +15,12 @@ Presented our findings and recommendations as a group, alongside information we 
 [Final Paper](pdf/G_Wilkins_DR_Paper_final.pdf)
 <br>
 
-**Presentation to community members (with Maasai translator)**
-<image src="images/Gabe_presenting_DR_Kenya.PNG?raw=true"/>
+**Field interview (with Swahili/Maa translator)**
+<image src="images/Cam_DR_interview.png?raw=true"/>
 <br>
-Photo credit: Alicia Houser
+Photo: Gabriel Wilkins
 
 **Fellow DR group members Emma, Cameron, and Mia; and our local Maasai interpreters James, Nelson, and Francis.**
 <image src="images/DR_group_photo.png?raw=true"/>
 <br>
-Photo credit: John Kiringe, PhD (our DR supervisor)
+Photo: John Kiringe, PhD (our DR supervisor)

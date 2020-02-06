@@ -2,18 +2,17 @@
 
 ---
 
-### Undergraduate Projects
 
-[Undergraduate Research - Andros](Andros_SURF_project.md)
-<img src="images/GWilkins_BAHO_poster_thumbnail.PNG?raw=true"/>
-
----
-[Bahama Oriole Project Map](BAHO_map_project.md)
-<image src="images/BAHO_worksite_map.PNG?raw=true"/>
+### [Undergraduate Research - Andros](Andros_SURF_project.md)
+[<img src="images/GWilkins_BAHO_poster_thumbnail.PNG?raw=true"/>](Andros_SURF_project.md)
 
 ---
-[Study Abroad Research - Kenya](Kenya_DR_project.md)
-<image src="images/Gabe_presenting_DR_Kenya.PNG?raw=true"/>
+### [Bahama Oriole Project Map](BAHO_map_project.md)
+[<image src="images/BAHO_worksite_map.PNG?raw=true"/>](BAHO_map_project.md)
+
+---
+### [Study Abroad Research - Kenya](Kenya_DR_project.md)
+[<image src="images/Gabe_presenting_DR_Kenya.PNG?raw=true"/>](Kenya_DR_project.md)
 
 ---
 ### Additional Projects

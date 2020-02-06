@@ -13,7 +13,7 @@
 
 ---
 [Study Abroad Research - Kenya](Kenya_DR_project.md)
-<image src="images/BAHO_worksite_map.PNG?raw=true"/>
+<image src="images/Gabe_presenting_DR_Kenya.PNG?raw=true"/>
 
 ---
 ### Additional Projects

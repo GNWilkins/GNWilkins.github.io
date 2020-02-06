@@ -4,11 +4,11 @@
 
 ### Undergraduate Projects
 
-[Undergraduate Research Summer 2019](pdf/GWilkins_Bahamas_Burn_poster.pdf)
-<img src="images/burn_poster.PNG?raw=true"/>
+[Undergraduate Research - Summer 2019](GNWilkins.github.io/projects/project1.md)
+<img src="images/GWilkins_BAHO_poster_thumbnail.PNG?raw=true"/>
 
 ---
-[Digitized Map for Bahama Oriole Project Fieldwork](pdf/G_Wilkins_BAHO_worksite_map.pdf)
+[Bahama Oriole Project Map](pdf/G_Wilkins_BAHO_worksite_map.pdf)
 <image src="images/BAHO_worksite_map.PNG?raw=true"/>
 
 ---

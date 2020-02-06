@@ -1,4 +1,4 @@
-## Forest Fires on Andros, Bahamas
+## Forest Fires on Andros, The Bahamas
 **Presented at UMBC's Summer Undergraduate Research Fest (August 7th, 2019)**
 <br><br>
 Worked with the Omland lab and UMBC's biology department to present data and analysis on forest fires on Andros, The Bahamas.

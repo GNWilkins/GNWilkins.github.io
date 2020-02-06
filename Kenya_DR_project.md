@@ -16,6 +16,7 @@ Presented our findings and recommendations as a group, alongside information we 
 <br>
 
 **Field interview (with Swahili/Maa translator)**
+<br>
 <image src="images/Cam_DR_interview.png?raw=true"/>
 <br>
 Photo: Gabriel Wilkins

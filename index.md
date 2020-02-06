@@ -16,13 +16,9 @@
 <image src="images/BAHO_worksite_map.PNG?raw=true"/>
 
 ---
-### Category Name 2
+### Additional Projects
 
 - [Lab for Introductory GIS Course](pdf/Wilkins_Lab_12.pdf)
-- [Project 2 Title](http://example.com/)
-- [Project 3 Title](http://example.com/)
-- [Project 4 Title](http://example.com/)
-- [Project 5 Title](http://example.com/)
 
 ---
 

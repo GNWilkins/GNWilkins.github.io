@@ -12,7 +12,7 @@
 <image src="images/BAHO_worksite_map.PNG?raw=true"/>
 
 ---
-[Study Abroad Research - Kenya](BAHO_map_project.md)
+[Study Abroad Research - Kenya](Kenya_DR_project.md)
 <image src="images/BAHO_worksite_map.PNG?raw=true"/>
 
 ---

@@ -4,21 +4,21 @@
 
 ### Undergraduate Projects
 
-[Undergraduate Research - Summer 2019](Andros_SURF_project.md)
+[Undergraduate Research - Andros](Andros_SURF_project.md)
 <img src="images/GWilkins_BAHO_poster_thumbnail.PNG?raw=true"/>
 
 ---
-[Bahama Oriole Project Map](pdf/G_Wilkins_BAHO_worksite_map.pdf)
+[Bahama Oriole Project Map](BAHO_map_project.md)
 <image src="images/BAHO_worksite_map.PNG?raw=true"/>
 
 ---
-[Lab for Introductory GIS Course](pdf/Wilkins_Lab_12.pdf)
-<image src="images/GWilkins_GES386_lab12_thumbnail.PNG?raw=true"/>
+[Study Abroad Research - Kenya](BAHO_map_project.md)
+<image src="images/BAHO_worksite_map.PNG?raw=true"/>
 
 ---
 ### Category Name 2
 
-- [Project 1 Title](http://example.com/)
+- [Lab for Introductory GIS Course](pdf/Wilkins_Lab_12.pdf)
 - [Project 2 Title](http://example.com/)
 - [Project 3 Title](http://example.com/)
 - [Project 4 Title](http://example.com/)

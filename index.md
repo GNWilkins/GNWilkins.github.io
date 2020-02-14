@@ -17,6 +17,9 @@ Developed and updated map used for in-field navigation, radio-tracking, and came
 Conducted interviews on climate change perceptions and adaptations among rural households in Kenya
 [<image src="images/Gabe_presenting_DR_Kenya.PNG?raw=true"/>](Kenya_DR_project.md)
 
+### [Median Housing Prices in Pittsburgh, PA](file:///E:/GES486/Lab_projects/Lab_3/Pittsburgh_webmap/qgis2web_2020_02_14-12_28_09_916352/index.html#12/40.4237/-80.0002)
+[<image src="images/webmap_thumbnail.PNG?raw=true"/>](Pittsburgh_webmap/qgis2web_2020_02_14-12_28_09_916352/index.html)
+
 ---
 ### Additional Projects
 

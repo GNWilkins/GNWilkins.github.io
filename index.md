@@ -17,9 +17,9 @@ Developed and updated map used for in-field navigation, radio-tracking, and came
 Conducted interviews on climate change perceptions and adaptations among rural households in Kenya
 [<image src="images/Gabe_presenting_DR_Kenya.PNG?raw=true"/>](Kenya_DR_project.md)
 
-### [Median Housing Prices in Pittsburgh, PA](Pittsburgh_webmap/qgis2web_2020_02_14-12_28_09_916352/index.html)
+### [Median Housing Prices in Pittsburgh, PA](Pittsburgh_webmap/qgis2web_2020_02_18-15_04_22_627169/index.html)
 Map of median home sale price of Pittsburgh neighborhoods. Made on QGIS and hosted on Leaflet
-[<image src="images/webmap_thumbnail.PNG?raw=true"/>](Pittsburgh_webmap/qgis2web_2020_02_14-12_28_09_916352/index.html)
+[<image src="images/webmap_thumbnail_transparent.PNG?raw=true"/>](Pittsburgh_webmap/qgis2web_2020_02_18-15_04_22_627169/index.html)
 
 ---
 ### Additional Projects

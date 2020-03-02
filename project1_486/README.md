@@ -13,7 +13,7 @@ Some data files were merged together, such as rivers and lakes, different railro
 Other data were transformed, predominantly the land use and land cover raster so to merge some similar data values together.
 
 ## Analysis
-Anlysis will include buffers around industrial sites and land uses such as mining, as well as the intersections of such buffers with census tract polygons. The next step will involve comparing the area of intersection with demographic, economic, and social characteristics of census tracts.
+Analysis will include buffers around industrial sites and land uses such as mining, as well as the intersections of such buffers with census tract polygons. The next step will involve comparing the area of intersection with demographic, economic, and social characteristics of census tracts.
 
 ## Outputs
 ### Expected outputs include:

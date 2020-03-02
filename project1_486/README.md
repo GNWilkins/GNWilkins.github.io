@@ -1,0 +1,15 @@
+# GES 486 Project 1 (By Gabriel Wilkins)
+The front-end of this project can be found at [project_link]()
+
+## Topic
+Poverty rate and other societal indicators in West Virginia spatially related to former and current mining or other industrial sites.
+
+## Data
+Data was gathered from [the West Virginia GIS Technical Center](http://wvgis.wvu.edu/data/data.php).
+Both raster and vector data were gathered, with data including: land use and land cover, census tracts, industrial buildings/sites/parks, mineral operations and abandoned mines, and roads/railroads.
+
+## Transformations and Subsets
+Some data files were merged together, such as rivers and lakes, different railroad files, and industrial and mine sites.
+Other data were transformed, predominantly the land use and land cover raster so to merge some similar data values together.
+
+## Analysis

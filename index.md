@@ -2,9 +2,9 @@
 
 ---
 
-### [Health Services in West Virginia](Andros_SURF_project.md)
+### [Health Services in West Virginia](project1_486/West_Virginia_Health.md)
 Plotted spatial distribution of forest fires on Andros, and compared temporal distribution to annual climatic patterns.
-[<img src="images/Charleston_hospitals_thumbnail.JPG?raw=true"/>](Andros_SURF_project.md)
+[<img src="project1_486/Charleston_hospitals_thumbnail.JPG?raw=true"/>](project1_486/West_Virginia_Health.md)
 
 
 ### [Undergraduate Research - Andros](Andros_SURF_project.md)

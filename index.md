@@ -3,7 +3,7 @@
 ---
 
 ### [Health Services in West Virginia](project1_486/West_Virginia_Health.md)
-Plotted spatial distribution of forest fires on Andros, and compared temporal distribution to annual climatic patterns.
+Examined the access to health services in West Virginia, including an in-depth look at hospitals in Charleston, WV.
 [<img src="project1_486/Charleston_hospitals_thumbnail.JPG?raw=true"/>](project1_486/West_Virginia_Health.md)
 
 

@@ -1,7 +1,7 @@
 ## Portfolio
 
 ---
-### [COVID-19-Related Twitter Activity in Late March, 2020](486_Lab6/covid_worker_market_tweets.md)
+### [COVID-19 Related Twitter Activity in Late March, 2020](486_Lab6/covid_worker_market_tweets.md)
 Compiled tweets mentioning COVID-19, as well as compared tweets mentioning markets to those mentioning workers.
 [<img src="486_Lab6/images/map_thumbnail.PNG?raw=true"/>](486_Lab6/covid_worker_market_tweets.md)
 

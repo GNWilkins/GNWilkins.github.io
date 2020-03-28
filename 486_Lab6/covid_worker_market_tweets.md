@@ -14,7 +14,7 @@ Tweets about markets (those mentioning 'market', 'stock market', or 'bailout') w
   This map has the COVID-19 tweets frequencies removed for clarity, so that it just shows the county-level difference in tweets relating to markets versus workers.
 <image src="../486_Lab6/images/worker_market_tweets.png?raw=true"/>
 <br>  
-  Example code used to gathered tweets:
+  Example code used to gathered tweets, using the rtweet package:
 <br>
 <image src="../486_Lab6/images/r_code_block.PNG?raw=true"/>
 

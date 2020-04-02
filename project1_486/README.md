@@ -1,5 +1,5 @@
 # GES 486 Project 1 (By Gabriel Wilkins)
-The front-end of this project can be found [here](../project1_486/West_Virginia_Health.md)
+The front-end of this project can be found [here](https://gnwilkins.github.io/project1_486/West_Virginia_Health.html)
 
 ## Topic
 Poverty rate and other societal indicators in West Virginia spatially related to former and current mining or other industrial sites.

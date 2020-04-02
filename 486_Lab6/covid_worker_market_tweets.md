@@ -9,10 +9,10 @@ The number of tweets from March 25th-27th, 2020 within each county and independe
   The tweets about COVID-19 (those mentioning 'covid' or 'coronavirus') are displayed in circles sized in proportion to the total number.
 Tweets about markets (those mentioning 'market', 'stock market', or 'bailout') were subtracted from tweets about workers (those mentioning 'worker', 'unemployed', or 'laid-off'), and the difference is displayed using a diverging color scheme.
 <br>  
-<image src="../486_Lab6/images/Covid _and_tweet_disparity.png?raw=true"/>
+[<image src="../486_Lab6/images/Covid _and_tweet_disparity.png?raw=true"/>](486_Lab6/images/Covid _and_tweet_disparity.png)
 <br><br>
   This map has the COVID-19 tweets frequencies removed for clarity, so that it just shows the county-level difference in tweets relating to markets versus workers.
-<image src="../486_Lab6/images/worker_market_tweets.png?raw=true"/>
+[<image src="../486_Lab6/images/worker_market_tweets.png?raw=true"/>](486_Lab6/images/worker_market_tweets.png)
 <br>  
   Example code used to gathered tweets, using the rtweet package:
 <br>

@@ -15,20 +15,19 @@ Each map has four different data layers:
 </ul> 
 <br>
 Madison, WI  
-<div id="Madison_map" style="width: 600px; height: 400px"></div>
+[<image src="../486_project_2_Wisconsin/images/Madison_webmap_thumbnail.PNG?raw=true"/>](486_project_2_Wisconsin/New_Madison_webmap/qgis2web_2020_04_19-22_34_43_006919/index.html)
 
 <br><br>
 Milwaukee, WI  
-<div>
-  file:///C:/Users/Owner/Desktop/Milwaukee_webmap/qgis2web_2020_04_19-21_04_19_611871/index.html#11/43.0600/-87.9500
-</div>
+[<image src="../486_project_2_Wisconsin/images/Milwaukee_webmap_thumbnail.PNG?raw=true"/>](486_project_2_Wisconsin/New_Madison_webmap/qgis2web_2020_04_19-22_34_43_006919/index.html)
 
 <br>
-[<image src="../project1_486/images/Cleston_hospitals_map.JPG?raw=true"/>](../pdf/G_Wilkins_Con_Hosptials.pdf)
+Data was gathered from:
 <br>
-Data was gathered from:  
-[WTMJ Milwaukee](https://www.tmj4.com/news/local-news/these-are-the-five-in-person-voting-centers-in-milwaukee-open-for-wisconsins-spring-primary-tuesday)  
-[Wisconsin Department of Natural Resources Open Data Portal](https://data-wi-dnr.opendata.arcgis.com/search?tags=transportation)  
+[WTMJ Milwaukee](https://www.tmj4.com/news/local-news/these-are-the-five-in-person-voting-centers-in-milwaukee-open-for-wisconsins-spring-primary-tuesday)
+<br>
+[Wisconsin Department of Natural Resources Open Data Portal](https://data-wi-dnr.opendata.arcgis.com/search?tags=transportation)
+<br> 
 [City of Madison Open Data Portal](https://data-cityofmadison.opendata.arcgis.com/datasets/polling-places)
 <br>
 All data is projected in WGS 84 Zone 16N.

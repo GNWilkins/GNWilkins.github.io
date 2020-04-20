@@ -13,13 +13,14 @@ Each map has four different data layers:
     </ul>
   </li>
 </ul> 
+[Madison, WI](../486_project_2_Wisconsin/New_Madison_webmap/qgis2web_2020_04_19-22_34_43_006919/index.html)
 <br>
-Madison, WI  
-[<image src="../486_project_2_Wisconsin/images/Madison_webmap_thumbnail.PNG?raw=true"/>](486_project_2_Wisconsin/New_Madison_webmap/qgis2web_2020_04_19-22_34_43_006919/index.html)
+[<image src="../486_project_2_Wisconsin/images/Madison_webmap_thumbnail.PNG?raw=true"/>](../486_project_2_Wisconsin/New_Madison_webmap/qgis2web_2020_04_19-22_34_43_006919/index.html)
 
 <br><br>
-Milwaukee, WI  
-[<image src="../486_project_2_Wisconsin/images/Milwaukee_webmap_thumbnail.PNG?raw=true"/>](486_project_2_Wisconsin/New_Madison_webmap/qgis2web_2020_04_19-22_34_43_006919/index.html)
+[Milwaukee, WI](../486_project_2_Wisconsin/New_Madison_webmap/qgis2web_2020_04_19-22_34_43_006919/index.html)
+<br>
+[<image src="../486_project_2_Wisconsin/images/Milwaukee_webmap_thumbnail.PNG?raw=true"/>](../486_project_2_Wisconsin/New_Madison_webmap/qgis2web_2020_04_19-22_34_43_006919/index.html)
 
 <br>
 Data was gathered from:

@@ -15,10 +15,16 @@ Each map has four different data layers:
 </ul> 
 <br>
 Madison, WI  
-[<image src="../project1_486/images/West_Virginia_health_access_map.JPG?raw=true"/>](../pdf/G_Wilkins_WV_healthcare_services.pdf)
+<div id="Madison_map" style="width: 600px; height: 400px"></div>
+
 <br><br>
 Milwaukee, WI  
-[<image src="../project1_486/images/Charleston_hospitals_map.JPG?raw=true"/>](../pdf/G_Wilkins_Charleston_Hosptials.pdf)
+<div>
+  file:///C:/Users/Owner/Desktop/Milwaukee_webmap/qgis2web_2020_04_19-21_04_19_611871/index.html#11/43.0600/-87.9500
+</div>
+
+<br>
+[<image src="../project1_486/images/Cleston_hospitals_map.JPG?raw=true"/>](../pdf/G_Wilkins_Con_Hosptials.pdf)
 <br>
 Data was gathered from:  
 [WTMJ Milwaukee](https://www.tmj4.com/news/local-news/these-are-the-five-in-person-voting-centers-in-milwaukee-open-for-wisconsins-spring-primary-tuesday)  

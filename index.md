@@ -2,7 +2,7 @@
 
 ---
 ### [Comparing Wisconsin Cities: Madison and Milwaukee](486_project_2_Wisconsin/Wisconsin_2020_primary.md)
-Detailing differences in population, demographics, and 2020 voting access. Made in QGIS and hosted on the web by Leaflet
+Detailing differences in population, demographics, and 2020 voting access. Made in QGIS and hosted on the web by Leaflet.
 [<image src="486_project_2_Wisconsin/images/index_thumbnail.PNG"/>](486_project_2_Wisconsin/Wisconsin_2020_primary.md)
 
 ---

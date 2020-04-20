@@ -57,6 +57,7 @@ Three different versions of each city's census blocks were developed, showing:
 </ul>
 <br>
 <b>Outputs</b>
+<br>
 Two different Leaflet elements were made, one for each city.
 Ideally, they would both be embedded in the same webpage for ease of comparison, but as of yet I have not had the time to devote to figuring out how to do that.
 <br>

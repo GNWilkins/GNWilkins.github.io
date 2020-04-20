@@ -64,4 +64,3 @@ Also ideally, there would have been images of lines pulled from tweets made at a
 But unfortunately, I started trying to gather such tweets after the (previously unknown to me) 7-day limit on Twitter's search API.
 
 
-

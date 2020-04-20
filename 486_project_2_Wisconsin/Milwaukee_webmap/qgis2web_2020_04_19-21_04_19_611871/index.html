@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <style>
+        html, body, #map {
+            width: 600px;
+            height: 400px;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/MilwaukeeMedianHouseholdIncome_1.js"></script>
+        <script src="data/MilwaukeePercentNonWhite_2.js"></script>
+        <script src="data/MilwaukeePopulation_3.js"></script>
+        <script src="data/DistancefromApril2020MilwaukeePollinglocations_4.js"></script>
+        <script src="data/MilwaukeeApril2020PollingPlaces_5.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[42.898271550624344,-88.33601291888967],[43.23439308458509,-87.46560512323866]]).setView([43.06, -87.95],11);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        var layer_BasemapStamenTonerLite_0 = L.tileLayer('http://a.tile.stamen.com/toner-lite/{z}/{x}/{y}.png', {
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 22
+        });
+        layer_BasemapStamenTonerLite_0;
+        map.addLayer(layer_BasemapStamenTonerLite_0);
+        function pop_MilwaukeeMedianHouseholdIncome_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['medncmE'] !== null ? Autolinker.link(feature.properties['medncmE'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_MilwaukeeMedianHouseholdIncome_1_0(feature) {
+            if (feature.properties['medncmE'] >= 7872.000000 && feature.properties['medncmE'] <= 30000.000000 ) {
+                return {
+                pane: 'pane_MilwaukeeMedianHouseholdIncome_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,25,28,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['medncmE'] >= 30000.000000 && feature.properties['medncmE'] <= 50000.000000 ) {
+                return {
+                pane: 'pane_MilwaukeeMedianHouseholdIncome_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,174,97,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['medncmE'] >= 50000.000000 && feature.properties['medncmE'] <= 75000.000000 ) {
+                return {
+                pane: 'pane_MilwaukeeMedianHouseholdIncome_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,191,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['medncmE'] >= 75000.000000 && feature.properties['medncmE'] <= 100000.000000 ) {
+                return {
+                pane: 'pane_MilwaukeeMedianHouseholdIncome_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(171,221,164,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['medncmE'] >= 100000.000000 && feature.properties['medncmE'] <= 250001.000000 ) {
+                return {
+                pane: 'pane_MilwaukeeMedianHouseholdIncome_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(43,131,186,1.0)',
+                interactive: true,
+            }
+            }
+        }
+        map.createPane('pane_MilwaukeeMedianHouseholdIncome_1');
+        map.getPane('pane_MilwaukeeMedianHouseholdIncome_1').style.zIndex = 401;
+        map.getPane('pane_MilwaukeeMedianHouseholdIncome_1').style['mix-blend-mode'] = 'normal';
+        var layer_MilwaukeeMedianHouseholdIncome_1 = new L.geoJson(json_MilwaukeeMedianHouseholdIncome_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_MilwaukeeMedianHouseholdIncome_1',
+            layerName: 'layer_MilwaukeeMedianHouseholdIncome_1',
+            pane: 'pane_MilwaukeeMedianHouseholdIncome_1',
+            onEachFeature: pop_MilwaukeeMedianHouseholdIncome_1,
+            style: style_MilwaukeeMedianHouseholdIncome_1_0,
+        });
+        bounds_group.addLayer(layer_MilwaukeeMedianHouseholdIncome_1);
+        map.addLayer(layer_MilwaukeeMedianHouseholdIncome_1);
+        function pop_MilwaukeePercentNonWhite_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NonWhte'] !== null ? Autolinker.link(feature.properties['NonWhte'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_MilwaukeePercentNonWhite_2_0(feature) {
+            if (feature.properties['NonWhte'] >= 0.000000 && feature.properties['NonWhte'] <= 20.000000 ) {
+                return {
+                pane: 'pane_MilwaukeePercentNonWhite_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(237,248,251,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['NonWhte'] >= 20.000000 && feature.properties['NonWhte'] <= 40.000000 ) {
+                return {
+                pane: 'pane_MilwaukeePercentNonWhite_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(179,205,227,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['NonWhte'] >= 40.000000 && feature.properties['NonWhte'] <= 60.000000 ) {
+                return {
+                pane: 'pane_MilwaukeePercentNonWhite_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(140,150,198,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['NonWhte'] >= 60.000000 && feature.properties['NonWhte'] <= 80.000000 ) {
+                return {
+                pane: 'pane_MilwaukeePercentNonWhite_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(136,86,167,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['NonWhte'] >= 80.000000 && feature.properties['NonWhte'] <= 100.000000 ) {
+                return {
+                pane: 'pane_MilwaukeePercentNonWhite_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(129,15,124,1.0)',
+                interactive: true,
+            }
+            }
+        }
+        map.createPane('pane_MilwaukeePercentNonWhite_2');
+        map.getPane('pane_MilwaukeePercentNonWhite_2').style.zIndex = 402;
+        map.getPane('pane_MilwaukeePercentNonWhite_2').style['mix-blend-mode'] = 'normal';
+        var layer_MilwaukeePercentNonWhite_2 = new L.geoJson(json_MilwaukeePercentNonWhite_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_MilwaukeePercentNonWhite_2',
+            layerName: 'layer_MilwaukeePercentNonWhite_2',
+            pane: 'pane_MilwaukeePercentNonWhite_2',
+            onEachFeature: pop_MilwaukeePercentNonWhite_2,
+            style: style_MilwaukeePercentNonWhite_2_0,
+        });
+        bounds_group.addLayer(layer_MilwaukeePercentNonWhite_2);
+        map.addLayer(layer_MilwaukeePercentNonWhite_2);
+        function pop_MilwaukeePopulation_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['popltnE'] !== null ? Autolinker.link(feature.properties['popltnE'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_MilwaukeePopulation_3_0(feature) {
+            if (feature.properties['popltnE'] >= 0.000000 && feature.properties['popltnE'] <= 500.000000 ) {
+                return {
+                pane: 'pane_MilwaukeePopulation_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,245,235,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['popltnE'] >= 500.000000 && feature.properties['popltnE'] <= 1000.000000 ) {
+                return {
+                pane: 'pane_MilwaukeePopulation_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(254,210,166,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['popltnE'] >= 1000.000000 && feature.properties['popltnE'] <= 1500.000000 ) {
+                return {
+                pane: 'pane_MilwaukeePopulation_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,146,67,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['popltnE'] >= 1500.000000 && feature.properties['popltnE'] <= 2000.000000 ) {
+                return {
+                pane: 'pane_MilwaukeePopulation_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(223,79,5,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['popltnE'] >= 2000.000000 && feature.properties['popltnE'] <= 3371.000000 ) {
+                return {
+                pane: 'pane_MilwaukeePopulation_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(127,39,4,1.0)',
+                interactive: true,
+            }
+            }
+        }
+        map.createPane('pane_MilwaukeePopulation_3');
+        map.getPane('pane_MilwaukeePopulation_3').style.zIndex = 403;
+        map.getPane('pane_MilwaukeePopulation_3').style['mix-blend-mode'] = 'normal';
+        var layer_MilwaukeePopulation_3 = new L.geoJson(json_MilwaukeePopulation_3, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_MilwaukeePopulation_3',
+            layerName: 'layer_MilwaukeePopulation_3',
+            pane: 'pane_MilwaukeePopulation_3',
+            onEachFeature: pop_MilwaukeePopulation_3,
+            style: style_MilwaukeePopulation_3_0,
+        });
+        bounds_group.addLayer(layer_MilwaukeePopulation_3);
+        map.addLayer(layer_MilwaukeePopulation_3);
+        function pop_DistancefromApril2020MilwaukeePollinglocations_4(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['AA_METERS'] !== null ? Autolinker.link(feature.properties['AA_METERS'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_DistancefromApril2020MilwaukeePollinglocations_4_0(feature) {
+            switch(String(feature.properties['AA_METERS'])) {
+                case '2000':
+                    return {
+                pane: 'pane_DistancefromApril2020MilwaukeePollinglocations_4',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(43,131,186,0.8)',
+                interactive: true,
+            }
+                    break;
+                case '4000':
+                    return {
+                pane: 'pane_DistancefromApril2020MilwaukeePollinglocations_4',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(100,171,176,0.8)',
+                interactive: true,
+            }
+                    break;
+                case '6000':
+                    return {
+                pane: 'pane_DistancefromApril2020MilwaukeePollinglocations_4',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(157,211,167,0.8)',
+                interactive: true,
+            }
+                    break;
+                case '8000':
+                    return {
+                pane: 'pane_DistancefromApril2020MilwaukeePollinglocations_4',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(199,233,173,0.8)',
+                interactive: true,
+            }
+                    break;
+                case '10000':
+                    return {
+                pane: 'pane_DistancefromApril2020MilwaukeePollinglocations_4',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(237,248,185,0.8)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_DistancefromApril2020MilwaukeePollinglocations_4');
+        map.getPane('pane_DistancefromApril2020MilwaukeePollinglocations_4').style.zIndex = 404;
+        map.getPane('pane_DistancefromApril2020MilwaukeePollinglocations_4').style['mix-blend-mode'] = 'normal';
+        var layer_DistancefromApril2020MilwaukeePollinglocations_4 = new L.geoJson(json_DistancefromApril2020MilwaukeePollinglocations_4, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_DistancefromApril2020MilwaukeePollinglocations_4',
+            layerName: 'layer_DistancefromApril2020MilwaukeePollinglocations_4',
+            pane: 'pane_DistancefromApril2020MilwaukeePollinglocations_4',
+            onEachFeature: pop_DistancefromApril2020MilwaukeePollinglocations_4,
+            style: style_DistancefromApril2020MilwaukeePollinglocations_4_0,
+        });
+        bounds_group.addLayer(layer_DistancefromApril2020MilwaukeePollinglocations_4);
+        map.addLayer(layer_DistancefromApril2020MilwaukeePollinglocations_4);
+        function pop_MilwaukeeApril2020PollingPlaces_5(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['display_na'] !== null ? Autolinker.link(feature.properties['display_na'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_MilwaukeeApril2020PollingPlaces_5_0() {
+            return {
+                pane: 'pane_MilwaukeeApril2020PollingPlaces_5',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(232,113,141,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_MilwaukeeApril2020PollingPlaces_5');
+        map.getPane('pane_MilwaukeeApril2020PollingPlaces_5').style.zIndex = 405;
+        map.getPane('pane_MilwaukeeApril2020PollingPlaces_5').style['mix-blend-mode'] = 'normal';
+        var layer_MilwaukeeApril2020PollingPlaces_5 = new L.geoJson(json_MilwaukeeApril2020PollingPlaces_5, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_MilwaukeeApril2020PollingPlaces_5',
+            layerName: 'layer_MilwaukeeApril2020PollingPlaces_5',
+            pane: 'pane_MilwaukeeApril2020PollingPlaces_5',
+            onEachFeature: pop_MilwaukeeApril2020PollingPlaces_5,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_MilwaukeeApril2020PollingPlaces_5_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_MilwaukeeApril2020PollingPlaces_5);
+        map.addLayer(layer_MilwaukeeApril2020PollingPlaces_5);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'<img src="legend/MilwaukeeApril2020PollingPlaces_5.png" /> Milwaukee April, 2020 Polling Places': layer_MilwaukeeApril2020PollingPlaces_5,'Distance from April, 2020 Milwaukee Polling locations<br /><table><tr><td style="text-align: center;"><img src="legend/DistancefromApril2020MilwaukeePollinglocations_4_2km0.png" /></td><td>2 km</td></tr><tr><td style="text-align: center;"><img src="legend/DistancefromApril2020MilwaukeePollinglocations_4_4km1.png" /></td><td>4 km</td></tr><tr><td style="text-align: center;"><img src="legend/DistancefromApril2020MilwaukeePollinglocations_4_6km2.png" /></td><td>6 km</td></tr><tr><td style="text-align: center;"><img src="legend/DistancefromApril2020MilwaukeePollinglocations_4_8km3.png" /></td><td>8 km</td></tr><tr><td style="text-align: center;"><img src="legend/DistancefromApril2020MilwaukeePollinglocations_4_10km4.png" /></td><td>10 km</td></tr></table>': layer_DistancefromApril2020MilwaukeePollinglocations_4,'Milwaukee Population<br /><table><tr><td style="text-align: center;"><img src="legend/MilwaukeePopulation_3_5000.png" /></td><td><500 </td></tr><tr><td style="text-align: center;"><img src="legend/MilwaukeePopulation_3_50010001.png" /></td><td>500 - 1,000 </td></tr><tr><td style="text-align: center;"><img src="legend/MilwaukeePopulation_3_100015002.png" /></td><td>1,000 - 1,500 </td></tr><tr><td style="text-align: center;"><img src="legend/MilwaukeePopulation_3_150020003.png" /></td><td>1,500 - 2,000 </td></tr><tr><td style="text-align: center;"><img src="legend/MilwaukeePopulation_3_20004.png" /></td><td>>2000 </td></tr></table>': layer_MilwaukeePopulation_3,'Milwaukee Percent Non-White<br /><table><tr><td style="text-align: center;"><img src="legend/MilwaukeePercentNonWhite_2_200.png" /></td><td><20%</td></tr><tr><td style="text-align: center;"><img src="legend/MilwaukeePercentNonWhite_2_20401.png" /></td><td>20% - 40%</td></tr><tr><td style="text-align: center;"><img src="legend/MilwaukeePercentNonWhite_2_40602.png" /></td><td>40% - 60%</td></tr><tr><td style="text-align: center;"><img src="legend/MilwaukeePercentNonWhite_2_60803.png" /></td><td>60% - 80%</td></tr><tr><td style="text-align: center;"><img src="legend/MilwaukeePercentNonWhite_2_804.png" /></td><td>>80% </td></tr></table>': layer_MilwaukeePercentNonWhite_2,'Milwaukee Median Household Income<br /><table><tr><td style="text-align: center;"><img src="legend/MilwaukeeMedianHouseholdIncome_1_300000.png" /></td><td>< $30,000 </td></tr><tr><td style="text-align: center;"><img src="legend/MilwaukeeMedianHouseholdIncome_1_30000500001.png" /></td><td>$30,000 - $50,000 </td></tr><tr><td style="text-align: center;"><img src="legend/MilwaukeeMedianHouseholdIncome_1_50000750002.png" /></td><td>$50,000 - $75,000 </td></tr><tr><td style="text-align: center;"><img src="legend/MilwaukeeMedianHouseholdIncome_1_750001000003.png" /></td><td>$75,000 - $100,000 </td></tr><tr><td style="text-align: center;"><img src="legend/MilwaukeeMedianHouseholdIncome_1_1000004.png" /></td><td>> $100,000</td></tr></table>': layer_MilwaukeeMedianHouseholdIncome_1,"Basemap (Stamen Toner Lite)": layer_BasemapStamenTonerLite_0,}).addTo(map);
+        setBounds();
+        </script>
+    </body>
+</html>

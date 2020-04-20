@@ -20,7 +20,7 @@ Each map has four different data layers:
 <br><br>
 [Milwaukee, WI](486_project_2_Wisconsin/New_Milwaukee_webmap/qgis2web_2020_04_19-22_35_28_353110/index.html)
 <br>
-[<image src="../486_project_2_Wisconsin/images/Milwaukee_webmap_thumbnail.PNG?raw=true"/>](486_project_2_Wisconsin/New_Milwaukee_webmap/qgis2web_2020_04_19-22_35_28_353110/index.html)
+[<image src="../486_project_2_Wisconsin/images/Milwaukee_webmap_thumbnail.PNG?raw=true"/>](../486_project_2_Wisconsin/New_Milwaukee_webmap/qgis2web_2020_04_19-22_35_28_353110/index.html)
 <br>
 Data was gathered from:
 <br>

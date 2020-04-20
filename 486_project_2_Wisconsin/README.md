@@ -56,7 +56,7 @@ Three different versions of each city's census blocks were developed, showing:
   <li>Median household income</li>
 </ul>
 <br>
-## Outputs
+<b>Outputs</b>
 Two different Leaflet elements were made, one for each city.
 Ideally, they would both be embedded in the same webpage for ease of comparison, but as of yet I have not had the time to devote to figuring out how to do that.
 <br>

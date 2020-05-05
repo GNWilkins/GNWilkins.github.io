@@ -1,8 +1,9 @@
 ## Portfolio
 
 ---
-### [Comparing Madison and Milwaukee, WI](486_Project_3_Comparing_Wisconsin_cities/Madison_Milwaukee_comparison.md)
-[<img src="486_Project_3_Comparing_Wisconsin_cities/images/Both_thumbnail.PNG?raw=true/>](486_Project_3_Comparing_Wisconsin_cities/Madison_Milwaukee_comparison.md)
+### [Comparing Madison and Milwaukee, Wisconsin](486_Project_3_Comparing_Wisconsin_cities/Madison_Milwaukee_comparison.md)
+Comparing population, income, race, and enthinicty between two cities. Designed in QGIS and hosted on the web by Leaflet.
+[<img src="486_Project_3_Comparing_Wisconsin_cities/images/Both_thumbnail.PNG"/>](486_Project_3_Comparing_Wisconsin_cities/Madison_Milwaukee_comparison.md)
 
 ---
 ### [Comparing Wisconsin Cities: Madison and Milwaukee](486_project_2_Wisconsin/Wisconsin_2020_primary.md)

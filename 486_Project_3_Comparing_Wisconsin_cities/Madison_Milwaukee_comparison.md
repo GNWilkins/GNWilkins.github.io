@@ -5,13 +5,12 @@ This project compared the demographics of Madison, WI, and Milwaukee, WI. Popula
 for block groups in each city were gathered from the 5-year American Community Survey (ACS).
 [Madison, WI](../PLACEHOLDER/index.html)
 <br>
-[<image src="../486_Project_3_Comparing_Wisconsin_cities/images/Madison_thumbnail.PNG?raw=true"/>](../PLACEHOLDER/index.html)
+<image src="../486_Project_3_Comparing_Wisconsin_cities/images/Madison_thumbnail.PNG?raw=true"/>
 
 <br>
 [Milwaukee, WI](../PLACEHOLDER/index.html)
 <br>
-[<image src="../486_Project_3_Comparing_Wisconsin_cities/images/Milwaukee_thumbnail.PNG?raw=true"/>](../PLACEHOLDER/index.html)
-
+<image src="../486_Project_3_Comparing_Wisconsin_cities/images/Milwaukee_thumbnail.PNG?raw=true"/>
 <br><br>
 Census data was gathered using tidycensus in R, using code like the example shown:
 <pre>

@@ -5,12 +5,12 @@ This project compared the demographics of Madison, WI, and Milwaukee, WI. Popula
 for block groups in each city were gathered from the 5-year American Community Survey (ACS).
 [Madison, WI](../486_project_2_Wisconsin/New_Madison_webmap/qgis2web_2020_04_19-22_34_43_006919/index.html)
 <br>
-[<image src="../486_project_2_Wisconsin/images/Madison_webmap_thumbnail.PNG?raw=true"/>](../486_project_2_Wisconsin/New_Madison_webmap/qgis2web_2020_04_19-22_34_43_006919/index.html)
+[<image src="../486_Project_3_Comparing_Wisconsin_cities/images/Madison_thumbnail.PNG?raw=true"/>](../486_project_2_Wisconsin/New_Madison_webmap/qgis2web_2020_04_19-22_34_43_006919/index.html)
 
 <br>
 [Milwaukee, WI](../486_project_2_Wisconsin/New_Milwaukee_webmap/qgis2web_2020_04_19-22_35_28_353110/index.html)
 <br>
-[<image src="../486_project_2_Wisconsin/images/Milwaukee_webmap_thumbnail.PNG?raw=true"/>](../486_project_2_Wisconsin/New_Milwaukee_webmap/qgis2web_2020_04_19-22_35_28_353110/index.html)
+[<image src="../486_Project_3_Comparing_Wisconsin_cities/images/Milwaukee_thumbnail.PNG?raw=true"/>](../486_project_2_Wisconsin/New_Milwaukee_webmap/qgis2web_2020_04_19-22_35_28_353110/index.html)
 
 <br><br>
 Census data was gathered using tidycensus in R, using code like the example shown:

@@ -1,4 +1,4 @@
-# GES 486 Project 1 (By Gabriel Wilkins)
+# GES 486 Project 2 (By Gabriel Wilkins)
 The front-end of this project can be found [here](https://gnwilkins.github.io/486_project_2_Wisconsin/Wisconsin_2020_primary.html)
 
 ## Topic

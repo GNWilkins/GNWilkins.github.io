@@ -7,8 +7,8 @@ for block groups in each city were gathered from the 5-year American Community S
 [Demographics of Madison, WI](../486_Project_3_Comparing_Wisconsin_cities/Madison_webmap/qgis2web_2020_05_04-22_09_12_473357/index.html)
   <iframe width="780" height="340" src="../486_Project_3_Comparing_Wisconsin_cities/Madison_webmap/qgis2web_2020_05_04-22_09_12_473357/index.html" frameborder="0" allowfullscreen></iframe>
 
-[Demographics of Milwaukee, WI](../486_Project_3_Comparing_Wisconsin_cities/Madison_webmap/qgis2web_2020_05_04-22_09_12_473357/index.html)
 <iframe width="780" height="340" src="../486_Project_3_Comparing_Wisconsin_cities/Madison_webmap/qgis2web_2020_05_04-22_09_12_473357/index.html" frameborder="0" allowfullscreen></iframe>
+[Demographics of Milwaukee, WI](../486_Project_3_Comparing_Wisconsin_cities/Madison_webmap/qgis2web_2020_05_04-22_09_12_473357/index.html)
 
 <br><br>
 Census data was gathered using tidycensus in R, using code like the example shown:

@@ -468,8 +468,8 @@
             /*abstract.addTo(map); */
         </script>
         <script>
-        	var ctx_data = $("#lastChart");
-        	var data = {
+            var ctx_data = $("#lastChart");
+            var data = {
 			    datasets: [{
 			        data: [5, 2, 3, 3],
                     backgroundColor: ['#178150', '#0E95A2', '#F08A4B', '#BE3E53']
@@ -480,11 +480,14 @@
 			        'click','on','the','map',
 			    ]
 			};
-			var myLastChart = new Chart(ctx_data, {
-			    type: 'doughnut',
-			    data: data,
-                options: Chart.defaults.doughnut,
-			});
+	    var myLastChart = new Chart(ctx_data, {
+		type: 'doughnut',
+		data: data,
+                options: {
+                    rotation: -1 * Math.PI,
+		    circumference: 1 * Math.PI,
+		}
+	    });
         </script>
         <script>
         	var ctx_data = $("#dataChart");
@@ -499,11 +502,14 @@
 			        'hover','over','the','map',
 			    ]
 			};
-			var myDataChart = new Chart(ctx_data, {
-			    type: 'doughnut',
-			    data: data,
-                options: Chart.defaults.doughnut,
-			});
+	    var myLastChart = new Chart(ctx_data, {
+		type: 'doughnut',
+		data: data,
+                options: {
+                    rotation: -1 * Math.PI,
+		    circumference: 1 * Math.PI,
+		}
+	    });
         var baseMaps = {};
         L.control.layers(baseMaps,{'Madison block groups by median income<br /><table><tr><td style="text-align: center;"><img src="legend/Madisonblockgroupsbymedianincome_2_6000.png" /></td><td><$30,000</td></tr><tr><td style="text-align: center;"><img src="legend/Madisonblockgroupsbymedianincome_2_60012001.png" /></td><td>$30,000 - $60,000</td></tr><tr><td style="text-align: center;"><img src="legend/Madisonblockgroupsbymedianincome_2_120020002.png" /></td><td>$60,000 - $100,000</td></tr><tr><td style="text-align: center;"><img src="legend/Madisonblockgroupsbymedianincome_2_200030003.png" /></td><td>$100,000 - $150,000</td></tr><tr><td style="text-align: center;"><img src="legend/Madisonblockgroupsbymedianincome_2_30004.png" /></td><td>>$150,000</td></tr><tr><td style="text-align: center;"><img src="legend/grey.png" /></td><td>No income data </td></tr></table>': layer_Madisonblockgroupsbymedianincome_2,"Stamen Watercolor": layer_StamenWatercolor_1,"Stamen Toner Lite": layer_StamenTonerLite_0,}).addTo(map);
         setBounds();

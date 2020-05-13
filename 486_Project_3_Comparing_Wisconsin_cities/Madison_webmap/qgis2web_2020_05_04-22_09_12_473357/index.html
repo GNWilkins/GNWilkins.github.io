@@ -42,10 +42,10 @@
             width:210px !important;
             min-width: 210px;
         }
-        .sparklabel {
+        /*.sparklabel {
         	width:90px;
         	display:inline-block;
-        }
+        }*/
         </style>
         <title>Demographics of Madison, WI</title>
     </head>
@@ -68,11 +68,11 @@
 					
                     <div id="hoverdirections">Hover over a block group to see more.</div>
 					
-                    <div id="hoversparklines">
+                    /*<div id="hoversparklines">
 						<h5>Current Block Group</h5>
 						<div class="sparklabel">Population:</div> <span id="popsparkline"> </span><br>
 						<div class="sparklabel">Income:</div>  <span id="incomesparkline"> </span>
-					</div>
+					</div>*/
 
 					<h5>Current Block Group</h5>
                     <p id="data_population"></p>
@@ -113,7 +113,7 @@
               });
             }
             /* Make the sparklines */
-            $("#popsparkline").sparkline([415,1100,985,2080,7000], {
+            /*$("#popsparkline").sparkline([415,1100,985,2080,7000], {
 			    type: 'box',
 			    raw: false,
 			    target: e.target.feature.properties['popltnE'],
@@ -140,13 +140,13 @@
 			    targetColor: '#d91e36',
 			    showOutliers: false,
 			disableTooltips: true
-			});
+			});*/
 
             /* Hide the hover directions */
             $("#hoverdirections").hide()
 
             /* Show the sparklines */
-            $("#hoversparklines").show()
+            /*$("#hoversparklines").show()*/
 
             var new_data = {
 			    			datasets: [{
@@ -453,11 +453,11 @@
                     abstract.show();
                     return this._div;
                 };
-                abstract.show = function () {
+                /*abstract.show = function () {
                     this._div.classList.remove("abstract");
                     this._div.classList.add("abstractUncollapsed");
                     this._div.innerHTML = 'Population: <span id="popsparkline"></span> <br> White (%): <span id="whitesparkline"></span> <br> Race: <span id="racesparkline"></span>';
-            };
+            };*/
             /*abstract.addTo(map); */
         </script>
         <script>

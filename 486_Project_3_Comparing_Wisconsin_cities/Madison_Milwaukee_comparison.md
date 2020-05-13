@@ -1,8 +1,7 @@
 ## Comparing Wisconsin Cities: Madison and Milwaukee
 **Project for Advanced GIS course at UMBC**
 <br><br>
-This project compared the demographics of Madison, WI, and Milwaukee, WI. Population, median household income, and statistics on race and ethnicity 
-for block groups in each city were gathered from the 5-year American Community Survey (ACS).
+This project compared the demographics of Madison, WI, and Milwaukee, WI. Population, median household income, and statistics on race and ethnicity for block groups in each city were gathered from the 5-year American Community Survey (ACS).
 <br><br>
 [Demographics of Madison, WI](../486_Project_3_Comparing_Wisconsin_cities/Madison_webmap/qgis2web_2020_05_04-22_09_12_473357/index.html)
   <iframe width="780" height="340" src="../486_Project_3_Comparing_Wisconsin_cities/Madison_webmap/qgis2web_2020_05_04-22_09_12_473357/index.html" frameborder="0" allowfullscreen></iframe>
@@ -30,6 +29,6 @@ Madison_census <- get_acs(geography = "block group",
               )
   </code>
 </pre>
-All data is projected in EPSG 3857 Web Mercator.
+All data is projected in EPSG 3857 Web Mercator. Charts were generated using [Chart.js](https://www.chartjs.org/)
 <br>
 Made using R 3.6.2 and QGIS 3.10 (with Stamen Toner Lite and Stamen Watercolor basemaps).

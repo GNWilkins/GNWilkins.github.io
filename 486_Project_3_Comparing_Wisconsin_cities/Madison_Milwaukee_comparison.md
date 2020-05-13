@@ -3,13 +3,16 @@
 <br><br>
 This project compared the demographics of Madison, WI, and Milwaukee, WI. Population, median household income, and statistics on race and ethnicity 
 for block groups in each city were gathered from the 5-year American Community Survey (ACS).
-[Madison, WI](../PLACEHOLDER/index.html)
+<br><br>
+[Madison, WI](../486_Project_3_Comparing_Wisconsin_cities/Madison_webmap/qgis2web_2020_05_04-22_09_12_473357/index.html)
+<div class="iframe_container">
+  <iframe width="560" height="315" src="486_Project_3_Comparing_Wisconsin_cities/Madison_webmap/qgis2web_2020_05_04-22_09_12_473357/index.html" frameborder="0" allowfullscreen></iframe>
+</div>
 <br>
-<image src="../486_Project_3_Comparing_Wisconsin_cities/images/Madison_thumbnail.PNG?raw=true"/>
+<iframe width="560" height="315" src="486_Project_3_Comparing_Wisconsin_cities/Madison_webmap/qgis2web_2020_05_04-22_09_12_473357/index.html" frameborder="0" allowfullscreen></iframe>
 
 <br>
 [Milwaukee, WI](../PLACEHOLDER/index.html)
-<br>
 <image src="../486_Project_3_Comparing_Wisconsin_cities/images/Milwaukee_thumbnail.PNG?raw=true"/>
 <br><br>
 Census data was gathered using tidycensus in R, using code like the example shown:

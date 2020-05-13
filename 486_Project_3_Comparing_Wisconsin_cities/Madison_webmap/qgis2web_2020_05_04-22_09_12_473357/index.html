@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css">
+        <link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/Chart.css">
+        <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        #map {
+            width: calc(100% - 300px);
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            display:inline-block;
+        }
+        #notmap {
+        	width:300px;
+        	float:right;
+        	display:inline-block;
+        	font-family: sans-serif;
+        }
+        #notmap-container {
+        	margin: 10px;
+        }
+        #abstract {
+            min-height:20px;
+            height:auto !important;
+            height:20px;
+            width:auto !important;
+            width:210px !important;
+            min-width: 210px;
+        }
+        .sparklabel {
+        	width:90px;
+        	display:inline-block;
+        }
+        </style>
+        <title>Demographics of Madison, WI</title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <div id="notmap">
+        	<div id="notmap-container">
+            	<h2>Demographics of Madison, WI</h2>
+            	<!--<form id="account" action="" method="post">
+            		<select id = "acc_type">
+            			<option value="no">No</option>
+            			<option value="yes">Yes</option>
+            		</select>
+            	</form>-->
+
+                <!-- Notice that I moved the abstract below -->
+            	<div id="abstract">
+					<!--<img style="max-width:260px; height:auto" id="hijack" src="https://media.giphy.com/media/NuBHQY1PfaXU4/giphy.gif"><br>-->
+					
+                    <div id="hoverdirections">Hover over a block group to see more.</div>
+					
+                    <div id="hoversparklines">
+						<h5>Current Block Group</h5>
+						<div class="sparklabel">Population:</div> <span id="popsparkline"> </span><br>
+						<div class="sparklabel">Income:</div>  <span id="incomesparkline"> </span>
+					</div>
+
+					<h5>Current Block Group</h5>
+                    <p id="data_population"></p>
+					<canvas id="dataChart" width="260" height="200"></canvas>
+
+                    <h5>Last Selected Block Group</h5>
+                    <p id="last_data_population"></p>
+					<canvas id="lastChart" width="260" height="200"></canvas>					                   
+            	</div>
+        	</div>
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/Madisonblockgroupsbymedianincome_2.js"></script>
+        <script src="js/jquery-3.5.0.min.js"></script>
+        <script src="js/jquery.sparkline.min.js"></script>
+        <script src="js/Chart.js"></script>
+        <script>
+        var highlightLayer;
+        function highlightFeature(e) {
+            highlightLayer = e.target;
+
+            if (e.target.feature.geometry.type === 'LineString') {
+              highlightLayer.setStyle({
+                color: '#42CAFD',
+              });
+            } else {
+              highlightLayer.setStyle({
+                fillColor: '#42CAFD',
+                fillOpacity: 1
+              });
+            }
+            /* Make the sparklines */
+            $("#popsparkline").sparkline([415,1100,985,2080,7000], {
+			    type: 'box',
+			    raw: false,
+			    target: e.target.feature.properties['popltnE'],
+			    boxLineColor: '#175676',
+			    boxFillColor: '#d7b377',
+			    whiskerColor: '#175676',
+			    outlierLineColor: '#175676',
+			    outlierFillColor: '#175676',
+			    medianColor: '#559337',
+			    targetColor: '#d91e36',
+			    showOutliers: false,
+			disableTooltips: true
+			});
+			$("#incomesparkline").sparkline([5500,46680,67540,89135,153130], {
+			    type: 'box',
+			    raw: false,
+			    target: e.target.feature.properties['medncmE'],
+			    boxLineColor: '#175676',
+			    boxFillColor: '#d7b377',
+			    whiskerColor: '#175676',
+			    outlierLineColor: '#175676',
+			    outlierFillColor: '#175676',
+			    medianColor: '#559337',
+			    targetColor: '#d91e36',
+			    showOutliers: false,
+			disableTooltips: true
+			});
+
+            /* Hide the hover directions */
+            $("#hoverdirections").hide()
+
+            /* Show the sparklines */
+            $("#hoversparklines").show()
+
+            var new_data = {
+			    			datasets: [{
+			        			data: [e.target.feature.properties['hispncE'], 
+                        e.target.feature.properties['blackE'], 
+                        e.target.feature.properties['whiteE'],
+                        e.target.feature.properties['asianE']],
+                    backgroundColor: ['#178150', '#0E95A2', '#F08A4B', '#BE3E53']
+			    			}],
+			    			// These labels appear in the legend and in the tooltips when hovering different arcs
+			    			labels: ['Hispanic','Black','White','Asian']
+						};
+						myDataChart.data = new_data;
+						myDataChart.update();
+
+            $('#data_population').html(e.target.feature.properties['popltnE']+" people");
+        }
+        var clickLayer;
+        function clickFeature(c) {
+            clickLayer = c.target;
+
+            if (c.target.feature.geometry.type === 'LineString') {
+              clickLayer.setStyle({
+                color: '#35A5D5',
+              });
+            } else {
+              clickLayer.setStyle({
+                fillColor: '#35A5D5',
+                fillOpacity: 1
+              });
+            }
+            /* Make the sparklines
+            $("#popsparkline").sparkline([415,1100,985,2080,7000], {
+			    type: 'box',
+			    raw: false,
+			    target: c.target.feature.properties['popltnE'],
+			    boxLineColor: '#175676',
+			    boxFillColor: '#d7b377',
+			    whiskerColor: '#175676',
+			    outlierLineColor: '#175676',
+			    outlierFillColor: '#175676',
+			    medianColor: '#559337',
+			    targetColor: '#d91e36',
+			    showOutliers: false,
+			disableTooltips: true
+			});
+			$("#incomesparkline").sparkline([5500,46680,67540,89135,153130], {
+			    type: 'box',
+			    raw: false,
+			    target: c.target.feature.properties['medncmE'],
+			    boxLineColor: '#175676',
+			    boxFillColor: '#d7b377',
+			    whiskerColor: '#175676',
+			    outlierLineColor: '#175676',
+			    outlierFillColor: '#175676',
+			    medianColor: '#559337',
+			    targetColor: '#d91e36',
+			    showOutliers: false,
+			disableTooltips: true
+			});*/
+
+            var new_data_2 = {
+			    			datasets: [{
+			        			data: [c.target.feature.properties['hispncE'], 
+                        c.target.feature.properties['blackE'], 
+                        c.target.feature.properties['whiteE'],
+                        c.target.feature.properties['asianE']],
+                    backgroundColor: ['#178150', '#0E95A2', '#F08A4B', '#BE3E53']
+			    			}],
+			    			// These labels appear in the legend and in the tooltips when hovering different arcs
+			    			labels: ['Hispanic','Black','White','Asian']
+						};
+						myLastChart.data = new_data_2;
+						myLastChart.update();
+
+            $('#last_data_population').html(c.target.feature.properties['popltnE']+" people");
+        }
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[42.99641180780536,-89.62490451791554],[43.1739904632019,-89.13419193320628]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+            map.setMaxBounds(map.getBounds());
+        }
+        var layer_StamenTonerLite_0 = L.tileLayer('http://a.tile.stamen.com/toner-lite/{z}/{x}/{y}.png', {
+            opacity: 0.4,
+            attribution: '',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 22
+        });
+        layer_StamenTonerLite_0;
+        map.addLayer(layer_StamenTonerLite_0);
+        var layer_StamenWatercolor_1 = L.tileLayer('http://c.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg', {
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 22
+        });
+        layer_StamenWatercolor_1;
+        map.addLayer(layer_StamenWatercolor_1);
+        function pop_Madisonblockgroupsbymedianincome_2(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover : highlightFeature,
+            });
+            layer.on({
+                click: function(c) {
+                    for (i in c.target._eventParents) {
+                        c.target._eventParents[i].resetStyle(c.target);
+                    }
+                },
+                click : clickFeature,
+            });
+            /*var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['GEOID'] !== null ? Autolinker.link(feature.properties['GEOID'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NAME'] !== null ? Autolinker.link(feature.properties['NAME'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['popltnE'] !== null ? Autolinker.link(feature.properties['popltnE'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['popltnM'] !== null ? Autolinker.link(feature.properties['popltnM'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['medncmE'] !== null ? Autolinker.link(feature.properties['medncmE'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['medncmM'] !== null ? Autolinker.link(feature.properties['medncmM'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['whiteE'] !== null ? Autolinker.link(feature.properties['whiteE'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['whiteM'] !== null ? Autolinker.link(feature.properties['whiteM'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['blackE'] !== null ? Autolinker.link(feature.properties['blackE'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['blackM'] !== null ? Autolinker.link(feature.properties['blackM'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['hispncE'] !== null ? Autolinker.link(feature.properties['hispncE'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['hispncM'] !== null ? Autolinker.link(feature.properties['hispncM'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['asianE'] !== null ? Autolinker.link(feature.properties['asianE'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['asianM'] !== null ? Autolinker.link(feature.properties['asianM'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PerWhte'] !== null ? Autolinker.link(feature.properties['PerWhte'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PerBlk'] !== null ? Autolinker.link(feature.properties['PerBlk'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PerAsn'] !== null ? Autolinker.link(feature.properties['PerAsn'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PerHisp'] !== null ? Autolinker.link(feature.properties['PerHisp'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});*/
+        }
+        function style_Madisonblockgroupsbymedianincome_2_0(feature) {
+            if (feature.properties['medncmE'] >= 5515.000000 && feature.properties['medncmE'] <= 30000.000000 ) {
+                return {
+                pane: 'pane_Madisonblockgroupsbymedianincome_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(254,235,226,0.8)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['medncmE'] >= 30000.000000 && feature.properties['medncmE'] <= 60000.000000 ) {
+                return {
+                pane: 'pane_Madisonblockgroupsbymedianincome_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(251,180,185,0.8)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['medncmE'] >= 60000.000000 && feature.properties['medncmE'] <= 100000.000000 ) {
+                return {
+                pane: 'pane_Madisonblockgroupsbymedianincome_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(247,104,161,0.8)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['medncmE'] >= 100000.000000 && feature.properties['medncmE'] <= 150000.000000 ) {
+                return {
+                pane: 'pane_Madisonblockgroupsbymedianincome_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(197,27,138,0.8)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['medncmE'] >= 150000.000000 && feature.properties['medncmE'] <= 250001.000000 ) {
+                return {
+                pane: 'pane_Madisonblockgroupsbymedianincome_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(122,1,119,0.8)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['medncmE'] <= 30000.000000 ) {
+                return {
+                pane: 'pane_Madisonblockgroupsbymedianincome_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(135,135,135,0.64)',
+                interactive: true,
+            }
+            }
+        }
+        map.createPane('pane_Madisonblockgroupsbymedianincome_2');
+        map.getPane('pane_Madisonblockgroupsbymedianincome_2').style.zIndex = 402;
+        map.getPane('pane_Madisonblockgroupsbymedianincome_2').style['mix-blend-mode'] = 'normal';
+        var layer_Madisonblockgroupsbymedianincome_2 = new L.geoJson(json_Madisonblockgroupsbymedianincome_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Madisonblockgroupsbymedianincome_2',
+            layerName: 'layer_Madisonblockgroupsbymedianincome_2',
+            pane: 'pane_Madisonblockgroupsbymedianincome_2',
+            onEachFeature: pop_Madisonblockgroupsbymedianincome_2,
+            style: style_Madisonblockgroupsbymedianincome_2_0,
+        });
+        bounds_group.addLayer(layer_Madisonblockgroupsbymedianincome_2);
+        map.addLayer(layer_Madisonblockgroupsbymedianincome_2);
+            var title = new L.Control();
+            title.onAdd = function (map) {
+                this._div = L.DomUtil.create('div', 'info');
+                this.update();
+                return this._div;
+            };
+            title.update = function () {
+                this._div.innerHTML = '<h2>Demographics of Madison, WI</h2>Hover over a block group to learn more';
+            };
+            /*title.addTo(map); */
+            var abstract = new L.Control({'position':'topright'});
+            abstract.onAdd = function (map) {
+                this._div = L.DomUtil.create('div',
+                'leaflet-control leaflet-bar abstract');
+                this._div.id = 'abstract'
+
+                    abstract.show();
+                    return this._div;
+                };
+                abstract.show = function () {
+                    this._div.classList.remove("abstract");
+                    this._div.classList.add("abstractUncollapsed");
+                    this._div.innerHTML = 'Population: <span id="popsparkline"></span> <br> White (%): <span id="whitesparkline"></span> <br> Race: <span id="racesparkline"></span>';
+            };
+            /*abstract.addTo(map); */
+        </script>
+        <script>
+        	var ctx_data = $("#lastChart");
+        	var data = {
+			    datasets: [{
+			        data: [5, 2, 3, 3],
+                    backgroundColor: ['#178150', '#0E95A2', '#F08A4B', '#BE3E53']
+			    }],
+
+			    // These labels appear in the legend and in the tooltips when hovering different arcs
+			    labels: [
+			        'click','on','the','map',
+			    ]
+			};
+			var myLastChart = new Chart(ctx_data, {
+			    type: 'doughnut',
+			    data: data,
+                options: Chart.defaults.doughnut,
+			});
+        </script>
+        <script>
+        	var ctx_data = $("#dataChart");
+        	var data = {
+			    datasets: [{
+			        data: [5, 4, 3, 3],
+                    backgroundColor: ['#178150', '#0E95A2', '#F08A4B', '#BE3E53']
+			    }],
+
+			    // These labels appear in the legend and in the tooltips when hovering different arcs
+			    labels: [
+			        'hover','over','the','map',
+			    ]
+			};
+			var myDataChart = new Chart(ctx_data, {
+			    type: 'doughnut',
+			    data: data,
+                options: Chart.defaults.doughnut,
+			});
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'Madison block groups by median income<br /><table><tr><td style="text-align: center;"><img src="legend/Madisonblockgroupsbymedianincome_2_6000.png" /></td><td><$30,000</td></tr><tr><td style="text-align: center;"><img src="legend/Madisonblockgroupsbymedianincome_2_60012001.png" /></td><td>$30,000 - $60,000</td></tr><tr><td style="text-align: center;"><img src="legend/Madisonblockgroupsbymedianincome_2_120020002.png" /></td><td>$60,000 - $100,000</td></tr><tr><td style="text-align: center;"><img src="legend/Madisonblockgroupsbymedianincome_2_200030003.png" /></td><td>$100,000 - $150,000</td></tr><tr><td style="text-align: center;"><img src="legend/Madisonblockgroupsbymedianincome_2_30004.png" /></td><td>>$150,000</td></tr><tr><td style="text-align: center;"><img src="legend/grey.png" /></td><td>No income data </td></tr></table>': layer_Madisonblockgroupsbymedianincome_2,"Stamen Watercolor": layer_StamenWatercolor_1,"Stamen Toner Lite": layer_StamenTonerLite_0,}).addTo(map);
+        setBounds();
+        </script>
+    </body>
+</html>

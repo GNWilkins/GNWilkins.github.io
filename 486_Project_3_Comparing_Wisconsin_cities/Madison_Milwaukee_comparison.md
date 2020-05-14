@@ -31,4 +31,4 @@ Madison_census <- get_acs(geography = "block group",
 </pre>
 All data is projected in EPSG 3857 Web Mercator. Charts were generated using [Chart.js](https://www.chartjs.org/)
 <br>
-Made using R 3.6.2 and QGIS 3.10 (with Stamen Toner Lite and Stamen Watercolor basemaps). Hosted on [Leaflet](https://leafletjs.com/) via the QGIS2web plugin for QGIS.
+Made using R 3.6.2 and QGIS 3.10 (with Stamen Toner Lite and Stamen Watercolor basemaps). Hosted on [Leaflet](https://leafletjs.com/) via the [QGIS2web](https://github.com/tomchadwin/qgis2web) plugin for QGIS.

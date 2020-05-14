@@ -14,12 +14,12 @@ Census data was gathered using tidycensus in R, using code like the example show
 <pre>
   <code>
 Madison_census <- get_acs(geography = "block group",
-              variables = c(population = "B01003_001",
-                            medincome = "B19013_001",
-                            white = "C02003_003",
-                            black = "C02003_004",
-                            hispanic = "B03002_012",
-                            asian = "C02003_006"), 
+            variables = c(population = "B01003_001",
+                          medincome = "B19013_001",
+                          white = "C02003_003",
+                          black = "C02003_004",
+                          hispanic = "B03002_012",
+                          asian = "C02003_006"), 
               state = "WI",
               county = "Dane",
               year = 2018,

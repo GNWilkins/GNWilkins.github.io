@@ -3,10 +3,10 @@
 <br><br>
 This project compared the demographics of Madison, WI, and Milwaukee, WI. Population, median household income, and statistics on race and ethnicity for block groups in each city were gathered from the 5-year American Community Survey (ACS).
 <br><br>
-[<h4>Demographics of Madison, WI</h4>](../486_Project_3_Comparing_Wisconsin_cities/Madison_webmap_full/qgis2web_2020_05_04-22_09_12_473357/index.html)
+[Demographics of Madison, WI](../486_Project_3_Comparing_Wisconsin_cities/Madison_webmap_full/qgis2web_2020_05_04-22_09_12_473357/index.html)
   <iframe width="780" height="340" src="../486_Project_3_Comparing_Wisconsin_cities/Madison_webmap/qgis2web_2020_05_04-22_09_12_473357/index.html" frameborder="0" allowfullscreen></iframe>
 <br>
-[<h5>Demographics of Milwaukee, WI</h5>](../486_Project_3_Comparing_Wisconsin_cities/Madison_webmap/qgis2web_2020_05_04-22_09_12_473357/index.html)
+[Demographics of Milwaukee, WI](../486_Project_3_Comparing_Wisconsin_cities/Madison_webmap/qgis2web_2020_05_04-22_09_12_473357/index.html)
 <iframe width="780" height="340" src="../486_Project_3_Comparing_Wisconsin_cities/Milwaukee_webmap/qgis2web_2020_05_04-22_11_23_595666/index.html" frameborder="0" allowfullscreen></iframe>
 
 <br><br>

@@ -7,7 +7,7 @@ This project compared the demographics of Madison, WI, and Milwaukee, WI. Popula
   <iframe width="780" height="340" src="../486_Project_3_Comparing_Wisconsin_cities/Madison_webmap/qgis2web_2020_05_04-22_09_12_473357/index.html" frameborder="0" allowfullscreen></iframe>
 <br>
 [Demographics of Milwaukee, WI](../486_Project_3_Comparing_Wisconsin_cities/Madison_webmap/qgis2web_2020_05_04-22_09_12_473357/index.html)
-<iframe width="780" height="340" src="../486_Project_3_Comparing_Wisconsin_cities/Madison_webmap/qgis2web_2020_05_04-22_09_12_473357/index.html" frameborder="0" allowfullscreen></iframe>
+<iframe width="780" height="340" src="../486_Project_3_Comparing_Wisconsin_cities/Milwaukee_webmap/qgis2web_2020_05_04-22_11_23_595666/index.html" frameborder="0" allowfullscreen></iframe>
 
 <br><br>
 Census data was gathered using tidycensus in R, using code like the example shown:

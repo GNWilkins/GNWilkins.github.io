@@ -42,6 +42,7 @@ Map of median home sale price of Pittsburgh neighborhoods. Made on QGIS and host
 ---
 ### Additional Projects
 
+- [ArcGIS JavaScript Starter App] (GES400/G_Wilkins_ArcGIS_JavaScript_starter_app.html)
 - [Lab for Introductory GIS Course](pdf/Wilkins_Lab_12.pdf)
 
 ---

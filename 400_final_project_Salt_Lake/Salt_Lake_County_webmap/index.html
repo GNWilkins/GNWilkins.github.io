@@ -1,0 +1,593 @@
+<!--UMBC GES-400 ArcGIS API for JavaScript Final Project --> 
+<!--Gabriel Wilkins, last updated on 12/12/2020 --> 
+
+<!-- Helpful websites:
+  - coolers (https://coolors.co/) - for generating color pallates
+  - ESRI JavaScript sample code (https://developers.arcgis.com/javascript/latest/sample-code/) - very useful code snippets, especially for widgets
+  - w3 schools (https://www.w3schools.com/) - lots of understandable instructions for code. CSS bits were especially useful
+ -->
+
+
+<!DOCTYPE html>
+<!-- Start HTML -->
+<html>
+
+
+<!-- Start Header of HTML -->
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
+
+    <!-- Specify title -->
+    <title>
+      Amenities in Salt Lake County, UT
+    </title>
+
+    <!-- ESRI stylesheet reference, using dark theme for this page -->
+    <link
+      rel="stylesheet"
+      href="https://js.arcgis.com/4.17/esri/themes/dark/main.css"/>
+
+    <!-- ESRI JavaScript API reference -->
+    <script src="https://js.arcgis.com/4.17/"></script>
+
+    <!-- Configure CSS styles for various page items --> 
+    <style>
+      html,
+      body,
+
+      /* Style for map view, height decreased to accomodate other page items without needed to scroll */
+      #viewDiv {
+        padding: 0;
+        margin: auto;
+        height: 93%;
+        width: 100%;
+      }
+
+      /* Style for layer and food store type selection toolbars. Moved left out of the way of the park toggle */
+      #divToolbar {
+        top:10;
+        left:15%;
+        width:50%;
+        position: fixed;
+        color:#F26430;
+      }
+
+      /* Style for splashscreen that shows up when page first loads */
+      #splashscreen {
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -50%);
+        border: 5px solid #6D7588;
+        padding: 10px;
+        background-color:#2A2D34;
+      }
+
+      /* Style for 'continue' button in splashscreen so that it is more or less centered in the splash */
+      .continue_button {
+        color:#F26430;
+        position: relative;
+        left: 32%;
+      }
+
+
+
+
+    </style>
+
+
+    <!-- JQuery reference so that the 'take me to the map' button causes the splashscreen to fade away -->
+    <script src=" https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+
+
+
+
+
+
+
+
+    <!-- **********************************
+      Start main JavaScript portion of code 
+    ************************************ -->
+
+    <script>
+
+      // Add references for items needed in the map, like feature layer, map, legend, etc.//
+      require([
+      	"esri/Map",
+      	"esri/views/MapView",
+      	"esri/layers/FeatureLayer",
+      	"esri/widgets/Legend",
+      	"esri/widgets/Locate",
+      	"esri/widgets/Home",
+      	"esri/widgets/ScaleBar",
+        "esri/widgets/BasemapToggle",
+        "esri/geometry/geometryEngine",
+        "esri/widgets/Directions"
+      	], function (Map, MapView, FeatureLayer, Legend, Locate, Home, ScaleBar, BasemapToggle, geometryEngine, Directions) { 
+
+
+
+
+
+        /**************************** 
+        Add map, layers, widgets, and other document items
+        *****************************/
+
+
+        // Add map object, basemap, and view device//
+        var map = new Map({
+          basemap: "streets-night-vector",
+        });
+        var view = new MapView({
+          container: "viewDiv",
+          map: map,
+          center: [-111.8920, 40.7200], // Set viw center with longitude, latitude near the center of Salt Lake City, UT //
+          zoom: 11, // Set zoom level appropriate for city view//
+        });
+
+        // Set minimum zoom to cities, and minimum to street, scale
+          view.constraints = {
+            minZoom: 9,
+            maxZoom: 18
+          }
+
+
+          /**********
+          1. ADD IN MAP LAYERS THROUGH GES-400 ARCGIS SERVER ENDPOINTS
+          **********/
+
+
+        // Define LIGHT RAIL ROUTES layer
+        var routesLayer = new FeatureLayer({
+          // URL to the vector tile service
+          url: "https://arces.geog.umbc.edu:6443/arcgis/rest/services/GES400_GWILKINS/Salt_Lake_County_map_for_javascript/MapServer/2",
+          title: "Light Rail Routes",
+          // Popup template referenced below
+          popupTemplate: routestemplate
+        });
+
+        // Add light rail layer
+        map.add(routesLayer);
+
+
+
+        // Define PARKS layer
+        var parksLayer = new FeatureLayer({
+          // URL to the vector tile service
+          url: "https://arces.geog.umbc.edu:6443/arcgis/rest/services/GES400_GWILKINS/Salt_lake_county_parks_new/MapServer/0",
+          title: "County Parks",
+          // Popup template referenced below
+          popupTemplate: parkstemplate
+        });
+
+        // Add parks layer
+        map.add(parksLayer);
+
+
+
+        // Define LIGHT RAIL STOPS layer
+        var lightrailLayer = new FeatureLayer({
+          // URL to the vector tile service
+          url: "https://arces.geog.umbc.edu:6443/arcgis/rest/services/GES400_GWILKINS/Salt_Lake_County_map_for_javascript/MapServer/1",
+          title: "Light Rail Stops",
+          // Popup template referenced below
+          popupTemplate: railtemplate
+        });
+
+        // Add light rail layer
+        map.add(lightrailLayer);
+        
+
+
+        // Define FOOD STORES layer
+        var foodstoresLayer = new FeatureLayer({
+          // URL to the vector tile service
+          url: "https://arces.geog.umbc.edu:6443/arcgis/rest/services/GES400_GWILKINS/Salt_Lake_County_map_for_javascript/MapServer/0",
+          title: "Food Stores",
+          // Specify popup template referenced below
+          popupTemplate: foodtemplate
+        });
+
+        // Add food stores layer
+        map.add(foodstoresLayer);
+
+
+        /**********
+        END MAP LAYERS SECTION
+        **********/
+
+
+
+
+
+        /**********
+        2. ADD IN MAP WIDGETS
+        **********/
+
+
+
+        //CREATE LEGEND WIDGET
+		    view.when(function () {
+          var legend = new Legend({
+
+            // Specify and title layers to draw from for the legend
+            view: view,
+            layerInfos: [
+              {
+                layer: foodstoresLayer,
+                title: "Food Store Types"
+              },
+              {
+              	layer: lightrailLayer,
+              	title: "Light Rail Stations"
+              },
+              {
+                layer: parksLayer,
+                title: "Salt Lake County Parks"
+              },
+              {
+                layer: routesLayer,
+                title: "Light Rail Routes"
+              }
+            ]
+          });
+          // Add widget to the bottom left corner of the view
+          view.ui.add(legend, "bottom-left");
+        });
+       
+
+
+
+        // CREATE BASEMAP TOGGLE WIDGET
+        var basemapToggle = new BasemapToggle({
+                view: view,
+                nextBasemap: "hybrid" // allows toggling to 'hybrid' basemap
+          });
+          // Add the widget to the top-right corner of the view
+          view.ui.add(basemapToggle, {
+            position: "top-right"
+          });
+
+
+
+
+        // CREATE HOME WIDGET (shifts back to original center and zoom level)
+        var homeBtn = new Home({
+          view: view
+        });
+        // Add the home button to the top left corner of the view
+        view.ui.add(homeBtn, "top-left");
+
+
+
+
+        // CREATE LOCATE WIDGET (which zooms to user's location)
+        var locateBtn = new Locate({
+          view: view
+        });
+        // Add to the top left corner of the view, code placed below home widget code so it is below home widget on the map (when zoomed in, the legend covers up part of whichever of these widgets is on the bottom)
+        view.ui.add(locateBtn, {
+          position: "top-left"
+        });
+
+
+
+
+        // CREATE SCALE BAR WIDGET
+      	var scaleBar = new ScaleBar({
+          view: view,
+          unit: "dual" // display both metric and non-metric units.
+        });
+
+        // Add to the bottom right corner of the view
+        view.ui.add(scaleBar, {
+          position: "bottom-right"
+        });
+
+
+
+
+      // CREATE DIRECTIONS WIDGET
+      var directionsWidget = new Directions({
+          view: view,
+          // Point the URL to a valid route service that uses an ArcGIS Online hosted service proxy instead of the default service (had to make my own through on my ArcGIS Online account.
+          // Also had to take out the 'solve?' bit fromt the end of the url for it to work (tried it so that it looked like the ESRI sample code and it worked for whatever reason))
+          routeServiceUrl:
+            "https://utility.arcgis.com/usrsvcs/appservices/x2vp8Tx4xEk5kjFK/rest/services/World/Route/NAServer/Route_World/"
+        });
+
+        // Add the Directions widget to the top right corner of the view, but becuase this code is below that of the basemap toggle, it shows up below the basemap
+        view.ui.add(directionsWidget, {
+          position: "top-right"
+        });
+
+
+
+
+
+
+
+      /**********
+      3. ADD IN THE CODE FOR OTHER DOCUMENT ITEMS (parks toggle, dropdown menus)
+      **********/
+
+
+
+      // ADD PARKS LAYER TOGGLE
+      var LayerToggle_parks = document.getElementById("ParksToggle");
+      LayerToggle_parks.addEventListener("change", function() {
+          parksLayer.visible = LayerToggle_parks.checked;});
+
+
+
+      // When map finishes loading, make sure all the functions below are anble to return (syntax different from Nasser textbook since it didn't work when coppied directly. Therefore I have also had to just throw some code 'triggers' into their own functions and have them initialized in this function)
+        map.when(
+          loadLayers(map.layers),
+          loadFoodStoreTypes(map.layers),
+          registerChange(map.layers),
+          getActiveLayer(map.layers)
+          );
+
+        
+
+        // Function to load layers into dropdown menu, using a for loop to create an 'option' item for each layer
+        function loadLayers(layers){
+          const ddLayerList = document.getElementById("ddLayerList");
+          layers.forEach(l=>{
+          let o = document.createElement("option");
+          o.textContent = l.title;
+          o.layer = l;
+          ddLayerList.appendChild(o)
+          })
+        };
+
+
+
+        // Function to let document know which layer is the active one based on which is selected from the 'Selected Layer' dropdown list
+        function getActiveLayer (layers) {
+          const ddLayerList = document.getElementById("ddLayerList");
+          const selectedIndex = ddLayerList.options.selectedIndex;
+          return ddLayerList.options[selectedIndex].layer;
+        };
+
+
+
+        // Enable document to register event change when a selection from the 'Food Store Types' dropdown menu is made
+        function registerChange (layers) {
+          const ddTypeList = document.getElementById("ddTypeList");
+          // Run onTypeChange function when this event is registered
+          ddTypeList.addEventListener("change", onTypeChange); 
+        };
+
+
+
+        // Function to load layer types into separate dropdown menu
+        function loadFoodStoreTypes(layers){
+          const ddTypeList = document.getElementById("ddTypeList");
+          const foodstoresLayer = getActiveLayer();
+          //Hardcode in the available types, since emulating the code from the Nasser book left me with a bunch of duplicate types
+          const types =['All store types','Convenience Grocery','Grocery Store','Health Food','Retail','Salvage Grocery','Specialty Grocery','Supermarket'];
+          types.forEach(t=>{
+          let o = document.createElement("option");
+          o.textContent = t;
+          ddTypeList.appendChild(o)
+          })
+        };
+
+
+
+        // Function to change the display and count features based on selected food store type
+        function onTypeChange(e){
+          const dd = e.target;
+          const selectedIndex = dd.options.selectedIndex;
+          const type = dd.options[selectedIndex].textContent;
+          const foodstoresLayer = getActiveLayer();
+          const query = foodstoresLayer.createQuery();
+            //If 'All store types' is selected, query based on something always true, thus showing all food store types (basically reseting the map)
+            if (type == "All store types")
+              query.where="1=1";
+            else
+              query.where = "Type = '" + type + "'";
+
+          // Changes the food store layer display to only show that store type
+          foodstoresLayer.definitionExpression = query.where;
+
+          // Counts and displays the number of stores of the selected type
+          foodstoresLayer.queryFeatureCount(query)
+          .then(c =>{
+            const lblTypeCount = document.getElementById("lblTypeCount");
+            lblTypeCount.textContent = c;
+          })
+          //Annoyingly the type selection only works when the 'active' layer is the food stores layer, so that must be selected form the layer dropdown menu for this menu to work
+          .catch(e => alert("'Food Stores' layer must be selected"));
+        }
+
+
+
+    // END 'REQUIRE' STATEMENT
+	  });
+
+
+
+
+
+    /**********
+    4. ADD IN THE CODE FOR POPUPS (For some reason the popups did not work when the code was listed within the require statement, thus they are put here, though still within the same script element)
+    **********/
+     
+
+
+	  // Create food stores popup template
+		var foodtemplate = {
+  			// autocasts as new PopupTemplate()
+  			title: "{name}",
+        // Specify display content and order
+  			content: "{type} - {streetaddr}, Salt Lake City, UT, {zip}"
+		};
+
+
+
+		// Create light rail popup template
+  	var railtemplate = {
+		    // autocasts as new PopupTemplate()
+	  		title: "{stationnam}",
+        // Specify display content and order
+	  		content: "{linename}"
+		};
+
+
+    // Create parks popup template
+    var parkstemplate = {
+        // autocasts as new PopupTemplate()
+        title: "{name}",
+        // Specify display content and order
+        content: "{type_}",
+    };
+
+
+    // Create parks popup template
+    var routestemplate = {
+        // autocasts as new PopupTemplate()
+        title: "{line}",
+        // Specify display content and order
+        content: "{route} - {direction}",
+    };
+
+
+    </script>
+    
+    <!-- **********************************
+      End main JavaScript portion of code 
+    ************************************ -->
+
+
+
+  </head>
+  <!-- End the header section of HTML--> 
+
+
+
+
+
+
+
+
+
+  <!-- Start body section of HTML (displayed in order included here) -->
+
+  <!-- set background color to a slightly blue gray -->
+  <body style= "background-color:#2A2D34">
+
+
+
+    <!-- Create title object in center of page -->
+    <center>
+          <p style="
+          /* set font color to a burnt orange (same for all document fonts apart from the ESRI widgets) */
+          color:#F26430;
+          font-size:20px;
+          font-family:verdana;
+          ">
+          <!-- Add a title to page --> 
+          Amenities in Salt Lake County, UT
+          </p>
+        </center>
+    
+
+
+    <!-- Toggle item for parks layer --> 
+    <span id="layerToggle" class="esri-widget" style="color:#F26430;font-size:14px;font-family:verdana;background-color:#2A2D34;">
+      <input type="checkbox" id="ParksToggle" checked /> Turn on local parks layer
+    </span>
+
+
+
+    <!-- Add two drop down toolbars and the count item -->
+    <right id = 'divToolbar' style="color:#F26430;font-size:14px;font-family:verdana;">
+
+      <!-- Add label for layer selection dropdown menu -->
+      <label>Selected Layer</label>
+        <select id = 'ddLayerList' style="color:#2A2D34">
+        </select>
+
+      <!-- Add label for store type dropdown menu -->
+      <label>Food Store Types</label>
+        <select id = 'ddTypeList' style="color:#2A2D34">
+        </select>
+
+      <!-- Add place for store counts to appear -->
+      <label id = 'lblTypeCount'></label>
+    </right>
+
+
+
+
+    <!-- Create view div in which to show map --> 
+    <div id="viewDiv"></div>
+
+
+
+
+    <!-- Add the splashscreen div -->
+    <div id="splashscreen" style="color:#F26430;font-size:14px;font-family:verdana;">
+    <!-- Text for title -->
+    <h2>Welcome!</h2>
+    <!-- Text for first section -->
+    This map displays light rail lines, light rail stops, county parks,<br>
+    and various types of food stores in Salt Lake County, Utah.<br>
+    Zoom in to see more layers, and click on items for more information.
+    <br><br>
+    <!-- Text for second section -->
+    If you want to focus on a certain type of food store, use the<br>dropdown menus to select the 'Food Stores' layer and then select a<br> food store type. A number will also appear telling you how many <br>total stores of that type are on the map.
+    <br><br>
+    <!-- Text for third section -->
+    When using the directions widget, you can manually click on the map<br>
+    or use the search box for both the start and end locations.
+    <br><br>
+    Thank you, and enjoy!
+    <br>
+    <br>
+    <br>
+    <!-- Create a continue button and HTML link to continue to the map (weird &raquo code is for the double chevron/arrow after the text) -->
+    <a href="#" class="continue_button">Take me to the map &raquo;</a>
+    </div>
+
+
+
+
+    <!-- Create subtitle in bottom left of page -->
+    <left>
+          <p style="
+          color:#F26430;
+          font-size:14px;
+          position:relative;
+          top: 10px;
+          font-family:verdana;
+          ">
+          <!-- Subtitle text --> 
+          ESRI ArcGIS API for JavaScript App - By Gabriel Wilkins
+          </p>
+        </left>
+
+
+    <!-- Add Jquery script so that the 'continue' button actually fades out the splashcreen -->
+    <script>
+     $('.continue_button').click( function() {
+            $(this).parent().fadeOut(500);
+     });
+    </script>
+
+
+
+
+  <!-- End body section of HTML -->
+  </body>
+
+
+<!-- END HTML -->
+</html>

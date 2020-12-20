@@ -1,14 +1,16 @@
 ## Portfolio
 
 ---
+### [Amenities in Salt Lake County, UT](400_final_project_Salt_Lake/Salt_Lake_Amenities.md)
+Finding and navigating light rail, parks, and food stores in Salt Lake County, Utah.
+[<img src="400_final_project_Salt_Lake/images for github/Zoom1.JPG"/>](400_final_project_Salt_Lake/Salt_Lake_Amenities.md)
+
+
+---
 ### [Comparing Madison and Milwaukee, Wisconsin](486_Project_3_Comparing_Wisconsin_cities/Madison_Milwaukee_comparison.md)
 Comparing population, income, race, and enthinicty between two cities. Designed in QGIS and hosted on the web by Leaflet.
 [<img src="486_Project_3_Comparing_Wisconsin_cities/images/Both_thumbnail.PNG"/>](486_Project_3_Comparing_Wisconsin_cities/Madison_Milwaukee_comparison.md)
 
----
-<!--- ( ### [Comparing Wisconsin Cities: Madison and Milwaukee](486_project_2_Wisconsin/Wisconsin_2020_primary.md)
-Detailing differences in population, demographics, and 2020 voting access. Made in QGIS and hosted on the web by Leaflet.
-[<image src="486_project_2_Wisconsin/images/index_thumbnail.PNG"/>](486_project_2_Wisconsin/Wisconsin_2020_primary.md) --->
 
 ---
 ### [COVID-19 Related Twitter Activity in Late March, 2020](486_Lab6/covid_worker_market_tweets.md)

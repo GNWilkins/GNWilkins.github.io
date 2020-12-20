@@ -7,13 +7,13 @@ Food store data gathered from the Utah Departemnt of Agriculture and Food (UDAF)
 Transit data gathered from the Utah Transit Authority (UTA).
 <br><br>
 More layers become visible as you zoom in the map.
-<img src="400_final_project_Salt_Lake/images for github/Zoom1.JPG"/>
+<img src="400_final_project_Salt_Lake/images for github/Zoom1.JPG?raw=true"/> 
 <br><br>
 You can use the directions widget to find directions and see the route between any two points on the map.
-[<img src="400_final_project_Salt_Lake/images for github/directions1.JPG"/>]
+<img src="400_final_project_Salt_Lake/images for github/directions1.JPG?raw=true"/>
 <br><br>
 When selecting the food stores layer, you can change the view to show only stores of one type, as well as the total number of stores of that type.
-[<img src="400_final_project_Salt_Lake/images for github/FullMap_grocery.JPG"/>]
+<img src="400_final_project_Salt_Lake/images for github/FullMap_grocery.JPG?raw=true"/>
 <br><br>
 [Check it out! -->](../400_final_project_Salt_Lake/Salt_Lake_County_webmap/index.html)
 

@@ -1,9 +1,9 @@
 ## Portfolio
 
----
+ <!-- ---
 ### [Amenities in Salt Lake County, UT](400_final_project_Salt_Lake/Salt_Lake_Amenities.md)
 Finding and navigating light rail, parks, and food stores in Salt Lake County, Utah.
-[<img src="400_final_project_Salt_Lake/images for github/Zoom1.JPG"/>](400_final_project_Salt_Lake/Salt_Lake_Amenities.md)
+[<img src="400_final_project_Salt_Lake/images for github/Zoom1.JPG"/>](400_final_project_Salt_Lake/Salt_Lake_Amenities.md) -->
 
 
 ---

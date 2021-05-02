@@ -1,6 +1,11 @@
 ## Portfolio
 
 ---
+###[Decolonizing Conservation in East Africa](https://arcg.is/1yuHj9)
+Investigating how colonialism, militarization, and activism interact in the contemporary conservation landscape.
+[<img src="images/Shetani lava road.jpg?raw=true"/>](https://arcg.is/1yuHj9)
+
+---
 <!-- ### [Amenities in Salt Lake County, UT](400_final_project_Salt_Lake/Salt_Lake_Amenities.md)
 Finding and navigating light rail, parks, and food stores in Salt Lake County, Utah.
 [<img src="400_final_project_Salt_Lake/images for github/Zoom1.JPG"/>](400_final_project_Salt_Lake/Salt_Lake_Amenities.md) -->

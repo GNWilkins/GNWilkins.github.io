@@ -1,7 +1,7 @@
 ## Portfolio
 
 ---
-###[Decolonizing Conservation in East Africa](https://arcg.is/1yuHj9)
+### [Decolonizing Conservation in East Africa](https://arcg.is/1yuHj9)
 Investigating how colonialism, militarization, and activism interact in the contemporary conservation landscape.
 [<img src="images/Shetani lava road.jpg?raw=true"/>](https://arcg.is/1yuHj9)
 

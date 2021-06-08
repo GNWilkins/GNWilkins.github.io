@@ -1,10 +1,11 @@
 title: Gabriel Wilkins # your name (or website title) here
 logo: "images/Garden_headshot.jpg?raw=true" # your photo (or logo) here
 description: > # your text below (remove <br> elements if you don't need line breaks)
-  Undergraduate student at the University of Maryland, Baltimore County - 
-  Geography and Environmental Studies, Philosophy
+  Graduate student at the University of Wisconsin, Madison for Urban and Regional Planning
+  <br>
+  BAs in Geography and Environmental Studies, Philosophy
   <br><br>
-  2+ years of experience with GIS applications (including QGIS, R, ENVI, ArcMap, and ArcGIS Online), Excel & SPSS, HTML & JavaScript
+  3+ years of experience with GIS applications (including QGIS, R, ENVI, ArcMap, and ArcGIS Online).
   <br><br>
   <a href="https://www.linkedin.com/in/gabriel-wilkins-975721160/">View My LinkedIn Profile</a> 
 theme: jekyll-theme-minimal
